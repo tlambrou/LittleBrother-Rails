@@ -80,7 +80,6 @@ test:
 #
 production:
   <<: *default
-  url: <%= ENV['DATABASE_URL'] %>
   database: LittleBrother-Rails_production
   username: LittleBrother-Rails
   password: <%= ENV['LITTLEBROTHER-RAILS_DATABASE_PASSWORD'] %>
