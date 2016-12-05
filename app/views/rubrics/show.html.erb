@@ -1,0 +1,20 @@
+<h2><%= @rubric.topic %></h2>
+<div class="row">
+  <div class="col-lg-6">
+      <div class="panel panel-default">
+          <div class="panel-heading">
+              Criteria
+          </div>
+          <!-- /.panel-heading -->
+          <div class="panel-body">
+
+            <% @criterium.each do |t| %>
+              <p>
+                <%= link_to t.name, t %>
+              </p>
+            <% end %>
+          </div>
+          <!-- /.panel-body -->
+      </div>
+      <!-- /.panel -->
+  </div>

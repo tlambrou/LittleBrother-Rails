@@ -3,6 +3,12 @@ Rails.application.routes.draw do
 
   resources :govs, only: [:index, :show]
 
-  root 'govs#index'
+  resources :rubrics, only: [:index, :show] do
+    resources :criteria, only: [:index, :new, :create]
+  end
+
+  resources :criteria, only: [:show]
+
+  root 'rubrics#index'
 
 end

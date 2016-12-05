@@ -10,9 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20161205132235) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "criteria", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "rubric_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "ancestry"
+    t.index ["ancestry"], name: "index_criteria_on_ancestry", using: :btree
+    t.index ["rubric_id"], name: "index_criteria_on_rubric_id", using: :btree
+  end
+
+  create_table "rubrics", force: :cascade do |t|
+    t.string   "topic"
+    t.string   "tags"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "criteria", "rubrics"
 end
