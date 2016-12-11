@@ -10,20 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161211061839) do
+ActiveRecord::Schema.define(version: 20161211123217) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.integer  "rubric_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["rubric_id"], name: "index_categories_on_rubric_id", using: :btree
+  end
+
   create_table "criteria", force: :cascade do |t|
     t.string   "name"
-    t.text     "description"
-    t.integer  "rubric_id"
+    t.string   "description"
+    t.integer  "category_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.string   "ancestry"
     t.index ["ancestry"], name: "index_criteria_on_ancestry", using: :btree
-    t.index ["rubric_id"], name: "index_criteria_on_rubric_id", using: :btree
+    t.index ["category_id"], name: "index_criteria_on_category_id", using: :btree
   end
 
   create_table "median_functions", force: :cascade do |t|
@@ -44,5 +53,6 @@ ActiveRecord::Schema.define(version: 20161211061839) do
     t.string   "username"
   end
 
-  add_foreign_key "criteria", "rubrics"
+  add_foreign_key "categories", "rubrics"
+  add_foreign_key "criteria", "categories"
 end

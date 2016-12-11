@@ -3,9 +3,9 @@
 one:
   name: MyString
   description: MyString
-  category: one
+  rubric: one
 
 two:
   name: MyString
   description: MyString
-  category: two
+  rubric: two

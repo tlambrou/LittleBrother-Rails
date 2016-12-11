@@ -1,0 +1,26 @@
+<legend><%= @category.name %></legend>
+
+
+
+<div class="col-lg-6">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="list-group">
+        <% @criterium.each do |t| %>
+        <%= link_to(rubric_category_criterium_path(@category, t), class: "list-group-item") do %>
+          <i class="fa fa-comment fa-fw"></i> <%= t.name %></br>
+          <span class="pull-right text-muted small"><%= markdown(t.description).html_safe %>
+          </span>
+        <% end %>
+        <% end %>
+
+      </div>
+      <!-- /.list-group -->
+      <a href="#" class="btn btn-default btn-block">View All...</a>
+    </div>
+    <!-- /.panel-body -->
+  </div>
+  <!-- /.panel -->
+
+</div>
+<!-- /.col-lg-6 -->

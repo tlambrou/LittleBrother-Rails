@@ -1,6 +1,4 @@
-p {
-  margin: 1em;
-}
+
 
 .nav-pills > li.active > a {
   color: #fff;
@@ -44,4 +42,8 @@ p {
 
 #signin {
   padding: 3em;
+}
+
+#lilclock {
+  display: inline;
 }

@@ -21,6 +21,7 @@ class RubricsController < ApplicationController
 
     def show
       @rubric = Rubric.find(params[:id])
+      # @category = Category.all.where(rubric_id: @rubric.id)
     end
 
     private

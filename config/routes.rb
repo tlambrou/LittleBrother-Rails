@@ -12,7 +12,9 @@ Rails.application.routes.draw do
   resources :sessions
 
   resources :rubrics, only: [:index, :show, :new, :create] do
-    resources :criteria, only: [:show, :new, :create]
+    resources :categories, only: [:show, :new, :create] do
+      resources :criteria, only: [:show, :new, :create]
+    end
   end
 
   root 'rubrics#index'

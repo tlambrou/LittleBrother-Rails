@@ -1,23 +1,24 @@
 class CriteriaController < ApplicationController
   def index
-    @rubric = Rubric.find(params[:rubric_id]).order("published_at DESC")
+    @category = Category.find(params[:category_id]).order("published_at DESC")
+
     @criterium = Criterium.all
   end
 
   def new
-    @rubric = Rubric.find(params[:rubric_id])
+    @category = Rubric.find(params[:category_id])
     @criterium = Criterium.new
   end
 
   def create
-    @rubric = Rubric.find(params[:rubric_id])
-    @criterium = @rubric.criteria.new(criterium_params)
+    @category = Category.find(params[:category_id])
+    @criterium = @category.criteria.new(criterium_params)
 
     if @criterium.save
-      redirect_to @rubric
+      redirect_to @category
       flash[:notice] = "Criteria saved successfully."
     else
-      redirect_to @rubric
+      redirect_to @category
       flash[:error] = "Criteria could not be saved."
     end
   end

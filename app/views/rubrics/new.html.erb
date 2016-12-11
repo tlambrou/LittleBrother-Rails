@@ -1,0 +1,25 @@
+<legend>New Rubric</legend>
+<%= form_for(@rubric) do |f| %>
+<% if @rubric.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@rubric.errors.count, "error") %> prohibited this @sub from being saved:</h2>
+
+  <ul>
+    <% @rubric.errors.full_messages.each do |message| %>
+    <li><div class="alert alert-danger" role="alert">
+      <strong>Whooops!</strong>
+      <%= message %></div></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <div class="form-group input-group">
+    <%= f.label :topic, class: "hidden" %>
+    <%= f.text_field :topic, class: "form-control", placeholder: "Rubric Name" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Create", class: "btn btn-primary" %>
+  </div>
+  <% end %>
