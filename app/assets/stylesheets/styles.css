@@ -1,0 +1,47 @@
+p {
+  margin: 1em;
+}
+
+.nav-pills > li.active > a {
+  color: #fff;
+  background-color: #33C1F4;
+}
+
+.nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+  color: #fff;
+  background-color: #33C1F4;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #33C1F4;
+    border-color: #31abd8;
+}
+
+.btn-success {
+    color: #fff;
+    background-color: #8EED5D;
+    border-color: #B1E100;
+}
+
+.btn-info {
+    color: #fff;
+    background-color: #5ECFC5;
+    border-color: #399E97;
+}
+
+.btn-warning {
+    color: #fff;
+    background-color: #F4C341;
+    border-color: #E48A57;
+}
+
+.btn-danger {
+    color: #fff;
+    background-color: #C45A65;
+    border-color: #95365E;
+}
+
+#signin {
+  padding: 3em;
+}

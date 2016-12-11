@@ -1,5 +1,5 @@
 class Rubric < ApplicationRecord
-  has_many :criteria
+  has_many :categories
 
   validates :topic, presence: true
 end

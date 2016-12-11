@@ -1,0 +1,49 @@
+<div class="row">
+<div class="row" style="height: 30px"></div>
+  <div class="col-lg-6">
+    <div class="panel panel-info" style="height: 380px">
+      <div class="panel-heading">
+        <h3>Log In</h3>
+      </div>
+      <div class="panel-body">
+        <%= form_tag sessions_path do %>
+
+        <form role="form">
+          <div class="form-group input-group">
+            <span class="input-group-addon"><i class="fa fa-envelope-o"></i>
+            </span>
+            <%= label_tag :email, '' %>
+            <%= text_field_tag :email, params[:email], class: "form-control", placeholder: "email" %>
+          </div>
+          <div class="form-group input-group">
+            <span class="input-group-addon"><i class="fa fa-lock" style="width: 14px"></i>
+            </span>
+            <%= label_tag :password, '' %>
+            <%= password_field_tag :password, nil, class: "form-control", placeholder: "password" %>
+          </div>
+          <div class="col-xs-6 col-xs-offset-3"><%= submit_tag "Log In", class: "btn btn-primary btn-lg btn-block" %></div>
+          <div class="col-xs-1"><button type="reset" class="btn btn-default btn-circle btn-lg"><i class="fa fa-rotate-right"></i></button></div>
+        </form>
+
+        <% end %>
+      </div>
+      <!-- <div class="panel-footer">
+      Panel Footer
+    </div> -->
+  </div>
+</div>
+<div class="col-lg-6">
+  <div class="panel panel-success" style="height: 380px">
+    <div class="panel-heading">
+      <h3>Sign Up</h3>
+    </div>
+    <div style="height: 60px"></div>
+    <div class="panel-body">
+
+      <h4 class="text-center">Don't have an account?  Try creating one!</h4></br>
+      <div class="col-xs-6 col-xs-offset-3"><%= link_to "Log In", signup_path, class: "btn btn-info btn-lg btn-block" %></div>
+
+    </div>
+  </div>
+</div>
+</div>

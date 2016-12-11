@@ -21,7 +21,6 @@ class RubricsController < ApplicationController
 
     def show
       @rubric = Rubric.find(params[:id])
-      @criterium = Criterium.roots
     end
 
     private

@@ -1,0 +1,100 @@
+<div class="row">
+<div class="row" style="height: 30px"></div>
+  <div class="col-lg-6">
+    <div class="panel panel-info" style="height: 380px">
+      <div class="panel-heading">
+        <h3>Sign Up</h3>
+      </div>
+      <div class="panel-body">
+        <%= form_for @user do |f| %>
+        <% if @user.errors.any? %>
+        <div class="error_messages">
+          <h2>Form is invalid</h2>
+          <ul style="list-style-type: none;">
+            <% @user.errors.full_messages.each do |message| %>
+            <li><div class="alert alert-danger" role="alert">
+              <strong>Oh Snap!</strong> <%= message %>
+            </div></li>
+            <% end %>
+          </ul>
+        </div>
+        <% end %>
+
+
+        <form role="form">
+          <div class="form-group input-group">
+            <span class="input-group-addon"><i class="fa fa-envelope-o"></i>
+            </span>
+            <%= f.label :email, class: "hidden" %>
+            <%= f.email_field :email, class: "form-control", placeholder: "email" %>
+          </div>
+          <div class="form-group input-group">
+            <span class="input-group-addon">@</span>
+            <%= f.label :username, class: "hidden" %>
+            <%= f.text_field :username, class: "form-control", placeholder: "username" %>
+          </div>
+          <div class="form-group input-group">
+            <span class="input-group-addon"><i class="fa fa-lock"></i>
+            </span>
+            <%= f.label :password, class: "hidden" %>
+            <%= f.password_field :password, class: "form-control", placeholder: "password" %>
+          </div>
+          <div class="form-group input-group">
+            <span class="input-group-addon"><i class="fa fa-lock"></i>
+            </span>
+            <%= f.label :password_confirmation, class: "hidden" %>
+            <%= f.password_field :password_confirmation, class: "form-control", placeholder: "confirmation" %>
+          </div>
+          <div class="col-xs-6 col-xs-offset-3"><%= f.submit "Sign Up", class: "btn btn-primary btn-lg btn-block" %></div>
+          <div class="col-xs-1"><button type="reset" class="btn btn-default btn-circle btn-lg"><i class="fa fa-rotate-right"></i></button></div>
+        </form>
+
+        <% end %>
+      </div>
+      <!-- <div class="panel-footer">
+      Panel Footer
+    </div> -->
+  </div>
+</div>
+<div class="col-lg-6">
+  <div class="panel panel-success" style="height: 380px">
+    <div class="panel-heading">
+      <h3>Log In</h3>
+    </div>
+    <div style="height: 60px"></div>
+    <div class="panel-body">
+
+      <h4 class="text-center">Already have an account?  Try logging in!</h4></br>
+      <div class="col-xs-6 col-xs-offset-3"><%= link_to "Log In", login_path, class: "btn btn-info btn-lg btn-block" %></div>
+
+    </div>
+  </div>
+</div>
+</div>
+
+
+<!-- <div class="col-lg-6">
+<form role="form">
+<div class="form-group input-group">
+<span class="input-group-addon"><i class="fa fa-envelope-o"></i>
+</span>
+<input type="text" class="form-control" placeholder="email">
+</div>
+<div class="form-group input-group">
+<span class="input-group-addon">@</span>
+<input type="text" class="form-control" placeholder="username">
+</div>
+<div class="form-group input-group">
+<span class="input-group-addon"><i class="fa fa-lock"></i>
+</span>
+<input type="password" class="form-control" placeholder="password">
+</div>
+<div class="form-group input-group">
+<span class="input-group-addon"><i class="fa fa-lock"></i>
+</span>
+<input type="password" class="form-control" placeholder="confirmation">
+</div>
+<button type="submit" class="btn btn-primary btn-lg">Sign Up</button>
+<button type="reset" class="btn btn-default btn-circle btn-lg"><i class="fa fa-rotate-right"></i></button>
+</form>
+</div> -->

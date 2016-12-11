@@ -1,20 +1,32 @@
+<% if logged_in? %>
 <h2>Rubrics</h2>
 <div class="row">
-  <div class="col-lg-6">
-      <div class="panel panel-default">
-          <div class="panel-heading">
-              Government Rubrics
-          </div>
-          <!-- /.panel-heading -->
-          <div class="panel-body">
+  <div class="col-lg-12">
+    <!-- /.panel-heading -->
+    <div class="row-md-12 float-md-left">
 
-            <% @rubrics.each do |c| %>
-              <p>
-                <%= link_to c.topic, c %>
-              </p>
-            <% end %>
-          </div>
-          <!-- /.panel-body -->
+
+      <% columns = ["col-md-4", "col-md-4 col-md-offset-4", "col-md-4 col-md-offset-8"] %>
+      <% buttonTypes = ["btn btn-primary btn-lg btn-block", "btn btn-warning btn-lg btn-block", "btn btn-danger btn-lg btn-block", "btn btn-info btn-lg btn-block", "btn btn-info btn-lg btn-block"]%>
+      <% i = 0 %>
+      <% @rubrics.each do |c| %>
+      <div class="col-md-4">
+        <%= link_to c.topic, c, class: buttonTypes[i] %>
       </div>
-      <!-- /.panel -->
+      <% i += 1 %>
+      <% end %>
+
+      <%= pie_chart Criterium.all.group(:name).count, donut: true %>
+
+    </div>
   </div>
+</div>
+
+<% else %>
+<div class="col-xs-6" id="signin">
+  <%= link_to "Sign Up", signup_path, class:"btn btn-outline-primary btn-primary btn-block" %>
+</div>
+<div class="col-xs-6" id="signin">
+  <%= link_to "Sign In", login_path, class:"btn btn-outline-info btn-info btn-block" %>
+</div>
+<% end %>

@@ -1,2 +1,0 @@
-class GovsController < ApplicationController
-end

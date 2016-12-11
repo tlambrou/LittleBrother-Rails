@@ -23,8 +23,17 @@ gem 'jquery-rails'
 # Use Chartkick for charting
 gem "chartkick"
 
+# Use groupdate for charting
+gem 'groupdate'
+
 # Use Ancestry for Criteria
 gem 'ancestry'
+
+# Add Red Carpet for Markdown
+gem 'redcarpet'
+
+# Add ActiveMedian for quick calculations
+gem 'active_median'
 
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
@@ -33,7 +42,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
