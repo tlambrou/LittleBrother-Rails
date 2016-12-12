@@ -1,36 +1,44 @@
 <legend><%= @rubric.topic %></legend>
 <div class="row">
-  <div class="col-lg-12">
+  <div class="col-lg-11">
+    <div class="col-xs-1 col-xs-offset-11">
+      <%= link_to "New Category", new_rubric_category_path(@rubric), class: "btn btn-outline btn-default"%>
+    </div>
+    <div class="col-xs-10">
+      <%= pie_chart Category.group(:name).count, donut: true %>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <ul class="dropdown-menu dropdown-tasks">
 
-    <%= pie_chart Category.group(:name).count, donut: true %>
+        </ul>
 
-    <ul class="dropdown-menu dropdown-tasks">
+        <ul class="chat">
+          <% @rubric.categories.each do |t| %>
 
-    </ul>
+          <%= link_to(rubric_category_path(@rubric, t), class: "list-group-item list-group-item-action") do %>
+          <li class="left">
+            <span class="chat-img pull-left">
+              <img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-circle" />
+            </span>
+            <div class="chat-body clearfix">
+              <div class="header">
+                <strong class="primary-font"><%= t.name %></strong>
+                <small class="pull-right text-muted">
+                  <i id="lilclock" class="fa fa-clock-o fa-fw">posted</i> <%= time_ago_in_words(t.created_at) %> ago
+                </small>
+              </div>
+              <p>
+                <%= markdown(t.description).html_safe %>
+              </p>
+            </div>
+          </li>
+          <% end %>
+          <% end %>
+        </ul>
+      </div>
+    </div>
 
-    <ul class="chat">
-      <% @rubric.categories.each do |t| %>
-
-      <%= link_to(rubric_category_path(@rubric, t), class: "list-group-item list-group-item-action") do %>
-      <li class="left">
-        <span class="chat-img pull-left">
-          <img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-circle" />
-        </span>
-        <div class="chat-body clearfix">
-          <div class="header">
-            <strong class="primary-font"><%= t.name %></strong>
-            <small class="pull-right text-muted">
-              <i id="lilclock" class="fa fa-clock-o fa-fw">posted</i> <%= time_ago_in_words(t.created_at) %> ago
-            </small>
-          </div>
-          <p>
-            <%= markdown(t.description).html_safe %>
-          </p>
-        </div>
-      </li>
-    <% end %>
-    <% end %>
-  </ul>
-</div>
-<!-- /.panel -->
+  </div>
+  <!-- /.panel -->
 </div>

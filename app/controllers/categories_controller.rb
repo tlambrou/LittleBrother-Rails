@@ -11,7 +11,7 @@ class CategoriesController < ApplicationController
 
   def create
     @rubric = Rubric.find(params[:rubric_id])
-    @category = @rubric.category.new(category_params)
+    @category = @rubric.categories.new(category_params)
 
     if @category.save
       redirect_to @rubric
