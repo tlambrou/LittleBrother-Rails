@@ -1,26 +1,45 @@
-<legend><%= @category.name %></legend>
+<div class="page-wrapper" style="min-height: 1215px;">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <legend>Criteria for <strong><%= @category.name %></strong></legend>
+          <p><%= markdown(@category.description).html_safe %></p>
+        </div>
+        <!-- .panel-heading -->
+        <div class="panel-body">
+          <div class="panel-group" id="accordion">
+            <% @criterium.each do |t| %>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= t.id %>"><%= t.name %></a>
+                </h4>
+              </div>
+              <div id="collapse<%= t.id %>" class="panel-collapse collapse">
+                <div class="panel-body">
+                  <%= markdown(t.description).html_safe %>
+
+                </div>
+                <div class="panel-footer">
+                  <%= link_to(rubric_category_criterium_path(@category, t), class: "btn btn-info btn-xs") do %>
+                  More detail...
+                  <% end %>
+                </div>
+
+              </div>
+
+            </div>
+            <% end %>
 
 
-
-<div class="col-lg-6">
-  <div class="panel panel-default">
-    <div class="panel-body">
-      <div class="list-group">
-        <% @criterium.each do |t| %>
-        <%= link_to(rubric_category_criterium_path(@category, t), class: "list-group-item") do %>
-          <i class="fa fa-comment fa-fw"></i> <%= t.name %></br>
-          <span class="pull-right text-muted small"><%= markdown(t.description).html_safe %>
-          </span>
-        <% end %>
-        <% end %>
-
+          </div>
+          <!-- .panel-body -->
+        </div>
+        <!-- /.panel -->
       </div>
-      <!-- /.list-group -->
-      <a href="#" class="btn btn-default btn-block">View All...</a>
+      <!-- /.col-lg-12 -->
     </div>
-    <!-- /.panel-body -->
+    <!-- /.row -->
   </div>
-  <!-- /.panel -->
-
 </div>
-<!-- /.col-lg-6 -->
