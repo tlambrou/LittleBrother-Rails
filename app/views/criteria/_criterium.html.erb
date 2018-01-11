@@ -1,0 +1,23 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4 class="panel-title">
+      <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= criterium.id %>"><%= criterium.name %></a>
+    </h4>
+  </div>
+  <div id="collapse<%= criterium.id %>" class="panel-collapse collapse">
+    <div class="panel-body">
+      <%= markdown(criterium.description).html_safe %>
+
+    </div>
+    <div class="panel-footer">
+      <%= link_to(rubric_category_criterium_path(@category, criterium), class: "btn btn-info btn-xs") do %>
+      More detail...
+      <% end %>
+      <%= link_to "New Subcriteria", new_rubric_category_criterium_path([@rubric, @category, :parent_id => t]), class: "btn btn-warning btn-xs" %>
+
+    </div>
+
+
+  </div>
+
+</div>

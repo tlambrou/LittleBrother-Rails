@@ -11,9 +11,9 @@ Rails.application.routes.draw do
 
   resources :sessions
 
-  resources :rubrics, only: [:index, :show, :new, :create] do
-    resources :categories, only: [:show, :new, :create] do
-      resources :criteria, only: [:show, :new, :create]
+  resources :rubrics, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
+    resources :categories, only: [:show, :new, :create, :edit, :update, :destroy] do
+      resources :criteria, only: [:show, :new, :create, :edit, :update, :destroy]
     end
   end
 

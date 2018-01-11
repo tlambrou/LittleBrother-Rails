@@ -25,7 +25,7 @@ class CategoriesController < ApplicationController
   def show
     @rubric = Rubric.find(params[:rubric_id])
     @category = Category.find(params[:id])
-    @criterium = Criterium.where(category_id: params[:id])
+    @criterium = Criterium.new
 
     # @comment = @post.comments.new
   end

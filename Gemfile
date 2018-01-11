@@ -9,7 +9,9 @@ gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Bootstrap Theme SB Admin
-gem 'bootstrap_sb_admin_base_v2'
+# gem 'bootstrap_sb_admin_base_v2'
+# Specify gem dependency for sb_admin
+# gemspec
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views

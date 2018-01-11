@@ -44,9 +44,6 @@ GEM
       activerecord (>= 3.0.0)
     arel (7.1.4)
     bcrypt (3.1.11)
-    bootstrap_sb_admin_base_v2 (0.3.3)
-      font-awesome-rails
-      jquery-rails
     builder (3.2.2)
     byebug (9.0.6)
     chartkick (2.2.0)
@@ -62,8 +59,6 @@ GEM
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.14)
-    font-awesome-rails (4.7.0.0)
-      railties (>= 3.2, < 5.1)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     groupdate (3.1.1)
@@ -171,7 +166,6 @@ DEPENDENCIES
   active_median
   ancestry
   bcrypt (~> 3.1.7)
-  bootstrap_sb_admin_base_v2
   byebug
   chartkick
   coffee-rails (~> 4.2)

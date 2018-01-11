@@ -1,0 +1,41 @@
+<legend>Create a New Criterium for <strong><%= @category.name %></strong></legend>
+<div class="col-xs-12">
+  <%= form_for([@rubric, @category, @criterium]) do |f| %>
+  <% if @criterium.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@criterium.errors.count, "error") %> prohibited this criterium from being saved:</h2>
+    <ul> -->
+      <% @criterium.errors.full_messages.each do |message| %>
+      <li>
+        <div class="alert alert-danger" role="alert">
+          <strong>Whooops!</strong><%= message %>
+        </div>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+  <% else %>
+
+  <div class="form-group input-group">
+    <%= f.hidden_field :parent_id %>
+    <%= f.label :name, class: "hidden" %>
+    <%= f.text_field :name, class: "form-control", placeholder: "Criterium Name" %>
+  </div>
+
+  <div class="form-group input-group">
+    <%= f.label :description, class: "hidden" %>
+    <%= f.text_area :description, cols: "60", rows: "10", class: "form-control", placeholder: "Category Description" %>
+  </div>
+
+
+
+  <% t = markdown("Markdown text okay: *&#x0002A;italics&#x0002A;* **&#x0002A;&#x0002A;bold&#x0002A;&#x0002A;** \`` `code` `\` \`\`\```` ```preformatted``` ```\`\`\` \>quote").html_safe %>
+  <p><%= t %>for more on Markdown formatting <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Here-Cheatsheet">click here.</a></p>
+
+  <div class="actions">
+    <%= f.submit "Create", class: "btn btn-primary" %>
+  </div>
+
+  <% end %>
+  <% end %>
+</div>

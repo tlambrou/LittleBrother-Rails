@@ -1,7 +1,11 @@
+
+
 #!/usr/bin/env ruby
 require 'pathname'
 require 'fileutils'
 include FileUtils
+
+
 
 # path to your application root.
 APP_ROOT = Pathname.new File.expand_path('../../', __FILE__)
@@ -32,3 +36,11 @@ chdir APP_ROOT do
   puts "\n== Restarting application server =="
   system! 'bin/rails restart'
 end
+
+
+
+bundle install
+#!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
+# Do any other automated setup that you need to do here

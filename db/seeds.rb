@@ -6,6 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Criterium.delete_all
+
+Category.delete_all
+
 Rubric.delete_all
 
 Rubric.create(topic:"Local Government", tags:"government, local, big brother")
@@ -14,7 +18,7 @@ Rubric.create(topic:"State Government", tags:"government, state, big brother")
 
 Rubric.create(topic:"Federal Government", tags:"government, federal, big brother")
 
-Category.delete_all
+
 
 t = Category.new(name: "Transparency", description: "Transparency promotes accountability and provides information for citizens about what their Government is doing.")
 t.rubric_id = Rubric.where(topic: "Local Government").ids[0]
@@ -47,6 +51,8 @@ t.save
 t = Category.new(name: "Waste Management", description: "Waste management is all the activities and actions required to manage waste from its inception to its final disposal.[1] This includes amongst other things, collection, transport, treatment and disposal of waste together with monitoring and regulation. It also encompasses the legal and regulatory framework that relates to waste management encompassing guidance on recycling etc.")
 t.rubric_id = Rubric.where(topic: "Local Government").ids[0]
 t.save
+
+
 
 t = Criterium.new(name: "Accessible, Current, Clear, and Consistent", description: "Measures & Performance for Accessible, Current, Clear, and Consistent")
 t.category_id = Category.where(name: "Transparency").ids[0]
